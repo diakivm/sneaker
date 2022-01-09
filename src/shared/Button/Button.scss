@@ -1,0 +1,46 @@
+.button {
+
+   &__container {
+      position: relative;
+   }
+
+   &__body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #9DD458;
+      padding: 15px;
+      border-radius: 20px;
+      transition: 0.2s ease-in-out;
+      width: 100%;
+      &:hover{
+         background-color: #8dc648;
+         .button__txt::before{
+            transition: 0.2s ease-in-out;
+            transform: translateX(15px);
+         }
+      }
+   }
+
+   &__txt {
+   font-family: Inter;
+   font-style: normal;
+   font-weight: 600;
+   font-size: 16px;
+   line-height: 19px;
+   text-align: center;
+
+   color: #FFFFFF;
+
+   display: flex;
+   align-items: center;
+   flex-direction: row-reverse;
+
+   &::before{
+     position: absolute;
+     top: 35%;
+     right: 15%;
+     transition: 0.2s ease-in-out;
+   }
+   }
+}

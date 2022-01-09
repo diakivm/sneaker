@@ -1,0 +1,39 @@
+//products
+.page {
+   padding: 0 15px;
+   padding-bottom: 100px;
+
+   &__products {
+   }
+}
+
+.searchfield {
+
+   &__container {
+      border: 2px solid #F3F3F3;
+      padding: 15px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+
+      &::before{
+         color: #d8d6d6;
+         margin: 0px 5px 0px 0px;
+      }
+   }
+
+   &__input {
+   font-family: Inter;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 16px;
+   line-height: 17px;
+   width: 100%;
+   color: #C4C4C4;
+   }
+   &__changedstyle {   
+      color: #5a5a5a !important;
+      font-size: 14px;
+
+   }
+}

@@ -1,0 +1,98 @@
+.sidemenu {
+
+   &__overlay {
+      visibility: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 10;
+   }
+
+   &__overlay-visible {
+      visibility: visible !important;
+
+      .sidemenu__container {
+         right: 0;
+         transition: right 0.3s ease-in-out;
+      }
+   }
+
+   &__container {
+      position: absolute;
+      top: 0;
+      right: -100%;
+      max-width: 350px;
+      width: 100%;
+      height: 100%;
+      background-color: #ffff;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      z-index: 11;
+      transition: 0.3s ease-in-out;
+   }
+
+   &__headcontainer{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+
+
+		&__iteams-conteainer {
+         overflow: auto;
+         margin: 20px 0;
+           .goodside__container:not(:last-child){
+              margin: 0px 0px 20px 0px;
+           }
+           flex: 1;
+		}
+
+         &__name {
+            font-family: Inter;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 29px;
+
+            color: #000000;
+         }
+
+         &__finalprice-container {
+            margin: 0px 0px 20px 0px;
+         }
+   
+         &__finalprice {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin: 0px 0px 15px 0px;
+         }
+   
+         &__txt {
+            margin: 0px 4px -2px 0px;
+         }
+   
+         &__sum {
+            margin: 0px 0px -3px 4px !important;
+         }
+   
+         &__tax {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+         }
+   
+         &__sumtax {
+            margin: 0px 0px -3px 4px !important;
+         }
+
+         &__dashedelement{
+            flex: 1;
+            border-bottom: 1px dashed silver;
+         }
+
+}

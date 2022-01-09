@@ -1,0 +1,98 @@
+
+.header {
+
+   &_container {
+   }
+
+   &__body {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px;
+      border-bottom: 1px solid #EAEAEA;
+   }
+
+   &__label {
+   }
+
+   &__nav {
+   }
+}
+.lable-header {
+   display: flex;
+   align-items: center;
+
+   &__logo {
+      width: 40px;
+      height: 40px;
+   }
+
+   &__text {
+      margin: 0px 0px 0px 15px;
+   }
+
+   &__name {
+   font-family: Inter;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 20px;
+   line-height: 24px;
+   text-transform: uppercase;
+   color: #000000;
+   }
+
+   &__subname {
+   font-family: Inter;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 14px;
+   line-height: 17px;
+
+   color: #9D9D9D;
+   }
+}
+.nav-header {
+   display: flex;
+
+   &__item {
+
+      cursor: pointer;
+
+      &:not(:last-child) {
+         margin: 0px 30px 0px 0px;
+      }
+
+      &::before{
+         color: #b5b5b5;
+         font-size: 20px;
+      }
+
+      &:hover{
+         &::before{
+            transition: 0.2s ease-in-out;
+            color: #585858;
+         }
+      }
+   }
+
+   &__cart {
+      display: flex;
+      align-items: center;
+      span{
+         font-family: Inter;
+         font-style: normal;
+         font-weight: 600;
+         font-size: 14px;
+         line-height: 17px;
+
+         color: #5C5C5C;
+         margin: 0px 0px 0px 5px;
+      }
+   }
+
+   &__like {
+   }
+
+   &__profile {
+   }
+}
