@@ -2,11 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import SideMenu from '../../../shared/SideMenu/SideMenu'
 import './Header.scss'
+import AppContext from '../../../AppContext'
 
 export default function Header() {
 
-
    let[isSideMenuVisible, setIsSideMenuVisible] = React.useState(false)
+
+   let {sumOfOrder, currency} = React.useContext(AppContext)
 
 
    function onTogleSideMenuVisible(){
@@ -32,7 +34,7 @@ export default function Header() {
                <ul className="header__nav nav-header">
                   <li className="nav-header__item">
                         <div className="nav-header__cart nav-header__item _icon-cart" onClick={onTogleSideMenuVisible}>
-                          <span>1205 руб.</span>
+                          <span>{sumOfOrder} {currency}</span>
                         </div> 
                   </li>
                   <li className="nav-header__item">

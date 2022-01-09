@@ -15,8 +15,9 @@ function App() {
   const [products, setProducts] = React.useState([])
   const [productsInCart, setProductsInCart] = React.useState([])
   const [productsInFavorite, setProductsInFavorite] = React.useState([])
+  const [sumOfOrder, setSumOfOrder] = React.useState(0)
+  const [currency, setCurrency] = React.useState('руб.')
 
-  
 
   //#region get all products and products in cart  from back-end
   React.useEffect(() => {
@@ -74,7 +75,9 @@ function App() {
   return (
       <AppContext.Provider value={{products,
                                    productsInCart, removeIteamInCartFromHomeScreen, removeIteamInCartFromCartScreen, addIteamToCart,
-                                   productsInFavorite,removeIteamFromFavorites, addIteamToFavorites}}>
+                                   productsInFavorite,removeIteamFromFavorites, addIteamToFavorites,
+                                   sumOfOrder, setSumOfOrder,
+                                   currency}}>
           <div className="wrapper _container">
             <Header />
             <Main />

@@ -18,7 +18,7 @@ export default function ProductsHomeScreen({products, title}) {
 
    return (
            <div className="products">
-             <div className="products__namesection namesection">
+             <div className="products__namesection namesection conteinerlivesearch">
                 <h3 className="namesection__name">{title}</h3>
                 <div className="searchfield__container _icon-search">
                   <input type="text" className='searchfield__input' placeholder="Поиск..." onChange={onChangeSerachInput}/>
