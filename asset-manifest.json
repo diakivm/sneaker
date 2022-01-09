@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/diakivm/sneaker/static/css/main.1a0194d1.css",
+    "main.js": "/diakivm/sneaker/static/js/main.22b44b43.js",
+    "static/media/icomoon.svg?t7exex": "/diakivm/sneaker/static/media/icomoon.bf26fbbac99b9f0d38f4.svg",
+    "static/media/icomoon.eot?t7exex": "/diakivm/sneaker/static/media/icomoon.e2897239bc97998d8f7f.eot",
+    "static/media/icomoon.woff?t7exex": "/diakivm/sneaker/static/media/icomoon.8a0a65fec5b8877e4cc4.woff",
+    "static/media/icomoon.ttf?t7exex": "/diakivm/sneaker/static/media/icomoon.2a435d8535dde8397468.ttf",
+    "index.html": "/diakivm/sneaker/index.html",
+    "main.1a0194d1.css.map": "/diakivm/sneaker/static/css/main.1a0194d1.css.map",
+    "main.22b44b43.js.map": "/diakivm/sneaker/static/js/main.22b44b43.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1a0194d1.css",
+    "static/js/main.22b44b43.js"
+  ]
+}
