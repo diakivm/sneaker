@@ -1,7 +1,10 @@
+@import "../../blanks/styles/mixins.scss";
+@import "../../blanks/styles/style.scss";
+
 .swiper {
 
    &__iteam {
-     min-height: 300px;
+      @include adaptiv-value("min-height", 350, 100, 1 );
      border-radius: 15px;
    }
 

@@ -34,7 +34,7 @@ export default function Header() {
                <ul className="header__nav nav-header">
                   <li className="nav-header__item">
                         <div className="nav-header__cart nav-header__item _icon-cart" onClick={onTogleSideMenuVisible}>
-                          <span>{sumOfOrder} {currency}</span>
+                           <span className='nav-header__cart-finalsum'>{sumOfOrder} {currency}</span>
                         </div> 
                   </li>
                   <li className="nav-header__item">
