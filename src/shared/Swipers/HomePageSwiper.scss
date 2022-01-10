@@ -4,7 +4,7 @@
 .swiper {
 
    &__iteam {
-      @include adaptiv-value("min-height", 350, 100, 1 );
+      @include adaptiv-value("min-height", 350, 150, 1 );
      border-radius: 15px;
    }
 

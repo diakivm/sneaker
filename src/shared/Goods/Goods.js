@@ -51,9 +51,6 @@ export default function Goods({iteam}) {
 
    return (
       <div className="iteam__conteiner">
-         {
-            console.log(productsInFavorite)
-         }
          <div className={ isProductInFavorites ? classesForLikeIconT.join(' ') : classesForLikeIconF.join(' ')} onClick={onTogleIconLikePress}></div>
             <img src={process.env.PUBLIC_URL+iteam.srcOfImage} alt="Goods" className='iteam__img _ibg' />
             <h5 className="iteam__label">{iteam.label}</h5>

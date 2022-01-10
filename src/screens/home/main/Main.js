@@ -21,7 +21,7 @@ let homePageSlidersInfo = [
 
 export default function Main() {
 
-   let {products, productsInFavorite} = React.useContext(AppContext)
+   let {products, productsInFavorite, isProductsLoaded} = React.useContext(AppContext)
 
    return (
       <main className="page">
@@ -30,7 +30,7 @@ export default function Main() {
           </div>
 
           <Routes>
-             <Route path="/sneaker" element={<ProductsLiveSearch products={products} title={"Все продукти"}/>}/>
+             <Route path="/sneaker" element={<ProductsLiveSearch products={products} title={"Все продукти"} isProductsLoaded={isProductsLoaded}/>}/>
              <Route path="/favorites" element={<Products products={productsInFavorite} title={"Избранное"}/>}/>
          </Routes>
          
