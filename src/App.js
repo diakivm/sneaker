@@ -41,16 +41,16 @@ function App() {
   //#endregion
 
   //#region actions with cart
-  async function removeIteamInCartFromHomeScreen(id){
-     const i = productsInCart.find((iteam) => iteam.parentId === id)
-     await axios.delete(`https://61d3436eb4c10c001712b8b8.mockapi.io/cart/${i.id}`)
-     setProductsInCart(productsInCart.filter((iteam) => iteam.parentId !== id ))
-  }
-
-  async function removeIteamInCartFromCartScreen(id){
-     await axios.delete(`https://61d3436eb4c10c001712b8b8.mockapi.io/cart/${id}`)
-     setProductsInCart(productsInCart.filter((iteam) => iteam.id !== id ))
-  }
+  async function removeIteamInCart(id){
+    const i = productsInCart.find((iteam) => iteam.parentId === id)
+   if(i){
+      await axios.delete(`https://61d3436eb4c10c001712b8b8.mockapi.io/cart/${i.id}`)
+      setProductsInCart(productsInCart.filter((iteam) => iteam.parentId !== id ))
+   } else {
+      await axios.delete(`https://61d3436eb4c10c001712b8b8.mockapi.io/cart/${id}`)
+      setProductsInCart(productsInCart.filter((iteam) => iteam.id !== id ))
+   }
+ }
 
   async function addIteamToCart(value){
      const {data} = await  axios.post("https://61d3436eb4c10c001712b8b8.mockapi.io/cart",value)
@@ -61,8 +61,14 @@ function App() {
   //#region actions with favorites
 
   async function removeIteamFromFavorites(id){
-    await axios.delete(`https://61d3436eb4c10c001712b8b8.mockapi.io/favorites/${id}`)
-    setProductsInFavorite(productsInFavorite.filter((iteam) => iteam.id !== id ))
+    const i = productsInFavorite.find((iteam) => iteam.parentId === id)
+    if(i){
+        await axios.delete(`https://61d3436eb4c10c001712b8b8.mockapi.io/favorites/${i.id}`)
+        setProductsInFavorite(productsInFavorite.filter((iteam) => iteam.parentId !== id ))
+    } else {
+      await axios.delete(`https://61d3436eb4c10c001712b8b8.mockapi.io/favorites/${id}`)
+      setProductsInFavorite(productsInFavorite.filter((iteam) => iteam.id !== id ))  
+    }
  }
 
   async function addIteamToFavorites(value){
@@ -74,7 +80,7 @@ function App() {
 
   return (
       <AppContext.Provider value={{products,
-                                   productsInCart, removeIteamInCartFromHomeScreen, removeIteamInCartFromCartScreen, addIteamToCart,
+                                   productsInCart, removeIteamInCart, addIteamToCart,
                                    productsInFavorite,removeIteamFromFavorites, addIteamToFavorites,
                                    sumOfOrder, setSumOfOrder,
                                    currency}}>

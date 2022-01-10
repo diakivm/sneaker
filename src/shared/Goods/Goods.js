@@ -10,9 +10,9 @@ export default function Goods({iteam}) {
    let classesForAddIconT = ["iteam__add", "_icon-check", "iteam__add-pressed"]
    let classesForAddIconF = ["iteam__add", "_icon-plus"]
 
-   let {productsInCart, removeIteamInCartFromHomeScreen, addIteamToCart,
+   let {productsInCart, removeIteamInCart, addIteamToCart,
         productsInFavorite,removeIteamFromFavorites, addIteamToFavorites,
-        currency                                                        } = React.useContext(AppContext)
+        currency, products,                                                      } = React.useContext(AppContext)
 
    let [isProductInFavorites, setIsProductInFavorites] = React.useState(false)
    let [isProductInCart, setIsProductInCart] = React.useState(false)
@@ -24,8 +24,12 @@ export default function Goods({iteam}) {
    },[productsInCart])
 
    React.useEffect(() => {
-      productsInFavorite.some(product => product.id === iteam.id) ? setIsProductInFavorites(true)
-                                                               : setIsProductInFavorites(false)
+      if(iteam.parentId === undefined)
+          productsInFavorite.some(product => product.parentId === iteam.id) ? setIsProductInFavorites(true) 
+                                                               : setIsProductInFavorites(false)  
+      if(iteam.parentId !== undefined)                                                         
+      products.some(product => product.id === iteam.parentId) ? setIsProductInFavorites(true) 
+                                                           : setIsProductInFavorites(false)
   },[productsInFavorite])
 
 
@@ -39,7 +43,7 @@ export default function Goods({iteam}) {
 
    function onTogleAddIteamInCart(){
       if(isProductInCart){
-         removeIteamInCartFromHomeScreen(iteam.id)
+         removeIteamInCart(iteam.id)
       } else {
          addIteamToCart({...iteam, parentId:iteam.id})
       }
@@ -47,6 +51,9 @@ export default function Goods({iteam}) {
 
    return (
       <div className="iteam__conteiner">
+         {
+            console.log(productsInFavorite)
+         }
          <div className={ isProductInFavorites ? classesForLikeIconT.join(' ') : classesForLikeIconF.join(' ')} onClick={onTogleIconLikePress}></div>
             <img src={process.env.PUBLIC_URL+iteam.srcOfImage} alt="Goods" className='iteam__img _ibg' />
             <h5 className="iteam__label">{iteam.label}</h5>
