@@ -1,10 +1,12 @@
 import React from 'react'
 import './Main.scss'
 import HomePageSwiper from '../../../shared/Swipers/HomePageSwiper'
-import ProductsLiveSearch from '../../../shared/Products/ProductsLiveSearch'
 import Products from '../../../shared/Products/Products'
 import AppContext from '../../../AppContext'
 import {Routes, Route } from "react-router-dom";
+import HomePage from './homePage/HomePage'
+import Favorites from './favorites/Favorites'
+import Profile from './profile/Profile'
 
 
 let homePageSlidersInfo = [
@@ -21,7 +23,7 @@ let homePageSlidersInfo = [
 
 export default function Main() {
 
-   let {products, productsInFavorite, isProductsLoaded} = React.useContext(AppContext)
+   let {productsInFavorite} = React.useContext(AppContext)
 
    return (
       <main className="page">
@@ -29,9 +31,10 @@ export default function Main() {
             <HomePageSwiper homePageSliders={homePageSlidersInfo}/>
           </div>
 
-          <Routes>
-             <Route path="/sneaker" element={<ProductsLiveSearch products={products} title={"Все продукти"} isProductsLoaded={isProductsLoaded}/>}/>
-             <Route path="/favorites" element={<Products products={productsInFavorite} title={"Избранное"}/>}/>
+         <Routes>
+             <Route path="/sneaker" element={<HomePage/>}/>
+             <Route path="/favorites" element={<Favorites/>}/>
+             <Route path="/profile" element={<Profile/>}/>
          </Routes>
          
       </main>

@@ -43,7 +43,9 @@ export default function Header() {
                         </Link>
                   </li>
                   <li className="nav-header__item">
+                     <Link to="/profile">
                         <div className="nav-header__profile nav-header__item _icon-profile"></div>
+                     </Link>
                   </li>
                </ul>
 

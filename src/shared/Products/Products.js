@@ -1,8 +1,9 @@
 import React from 'react'
 import './ProductsLiveSearch.scss'
 import Goods from '../Goods/Goods'
+import GoodsOrder from '../Goods/GoodsOrder'
 
-export default function Products({products, title}) {
+export default function Products({products, title, noAction=true}) {
 
 
    return (
@@ -13,8 +14,13 @@ export default function Products({products, title}) {
              <div className="products__container ">
                 <div className="products__wrapper">
                    {
+                     noAction ?
                       products.map((iteam) => {
                         return <Goods iteam={iteam} key={iteam.id} />
+                       })
+                          :
+                       products.map((iteam) => {
+                        return <GoodsOrder iteam={iteam} key={iteam.id} />
                        })
                    }
                 </div>

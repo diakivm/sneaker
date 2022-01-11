@@ -15,6 +15,7 @@ function App() {
   const [products, setProducts] = React.useState([])
   const [productsInCart, setProductsInCart] = React.useState([])
   const [productsInFavorite, setProductsInFavorite] = React.useState([])
+  const [productsInOrders, setProductsInOrders] = React.useState([])
   const [sumOfOrder, setSumOfOrder] = React.useState(0)
   const [currency, setCurrency] = React.useState('руб.')
   const [isProductsLoaded, setIsProductLoaded] = React.useState(false)
@@ -31,11 +32,13 @@ function App() {
            const receivedProducts = await axios.get("https://61d3436eb4c10c001712b8b8.mockapi.io/products")
            const receivedCartProducts = await axios.get("https://61d3436eb4c10c001712b8b8.mockapi.io/cart")
            const receivedFacoritesProducts = await axios.get("https://61d3436eb4c10c001712b8b8.mockapi.io/favorites")
+           const receivedOrders = await axios.get("https://61d3436eb4c10c001712b8b8.mockapi.io/orders")
 
            setIsProductLoaded(true)
 
            setProductsInCart(receivedCartProducts.data)
            setProductsInFavorite(receivedFacoritesProducts.data)
+           setProductsInOrders(receivedOrders.data)
            setProducts(receivedProducts.data)
 
       } catch (error) {
@@ -113,6 +116,26 @@ function App() {
   }
   //#endregion
 
+  async function doOrder(){
+    try {
+      await axios.post("https://61d3436eb4c10c001712b8b8.mockapi.io/orders",{products: productsInCart})
+      productsInCart.forEach(iteam => {
+         removeIteamFromCart(iteam.id)
+      })
+      setProductsInCart([])
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function removeIteamFromCart(id){
+    try {
+      await axios.delete(`https://61d3436eb4c10c001712b8b8.mockapi.io/cart/${id}`)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 
   return (
       <AppContext.Provider value={{products,
@@ -120,7 +143,9 @@ function App() {
                                    productsInFavorite,removeIteamFromFavorites, addIteamToFavorites,
                                    sumOfOrder, setSumOfOrder,
                                    currency,
-                                   isProductsLoaded}}>
+                                   isProductsLoaded,
+                                   productsInOrders, doOrder}}>
+
           <div className="wrapper _container">
             <Header />
             <Main />

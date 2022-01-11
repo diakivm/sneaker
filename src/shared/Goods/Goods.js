@@ -19,17 +19,23 @@ export default function Goods({iteam}) {
 
 
    React.useEffect(() => {
-       productsInCart.some(product => product.parentId === iteam.id) ? setIsProductInCart(true)
-                                                               : setIsProductInCart(false)
+
+
+      productsInCart.some(product => product.parentId === iteam.id) ? setIsProductInCart(true) : setIsProductInCart(false)
+
    },[productsInCart])
 
    React.useEffect(() => {
+
       if(iteam.parentId === undefined)
-          productsInFavorite.some(product => product.parentId === iteam.id) ? setIsProductInFavorites(true) 
-                                                               : setIsProductInFavorites(false)  
+          productsInFavorite.some(product => product.parentId === iteam.id) ? setIsProductInFavorites(true) : setIsProductInFavorites(false)  
+
       if(iteam.parentId !== undefined)                                                         
-      products.some(product => product.id === iteam.parentId) ? setIsProductInFavorites(true) 
-                                                           : setIsProductInFavorites(false)
+         productsInCart.some(product => product.parentId === iteam.parentId) ? setIsProductInCart(true) : setIsProductInCart(false)
+
+      if(iteam.parentId !== undefined)                                                         
+         products.some(product => product.id === iteam.parentId) ? setIsProductInFavorites(true) : setIsProductInFavorites(false)
+
   },[productsInFavorite])
 
 
